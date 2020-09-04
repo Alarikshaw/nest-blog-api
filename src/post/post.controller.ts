@@ -1,13 +1,14 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { CreatePostDto } from './postFinterface';
+import { PostModel } from './post.model';
 @Controller('posts')
 @ApiTags('文章')
 export class PostController {
     @Get()
     @ApiOperation({summary: '查询列表'})
-    index() {
-        return []
+    async index() {
+        return await PostModel.find()
     }
     /**
      * 创建文章的代码
@@ -16,16 +17,39 @@ export class PostController {
      */
     @Post()
     @ApiOperation({summary: '创建'})
-    create(@Body() Body: CreatePostDto) {
-        return Body
+    async create(@Body() createPostDto: CreatePostDto) {
+        await PostModel.create(createPostDto)
+        return {
+            success: true
+        }
     }
     
     @Get(":id")
     @ApiOperation({summary: '查询详细信息'})
-    detail() {
+    detail(@Param('id') id: string) {
         return {
-            id: 1,
-            title: '123123'
+            id: id,
+            title: '这是详细信息！'
+        }
+    }
+
+    @Put(':id')
+    @ApiOperation({summary: '编辑'})
+    update(@Param('id') id: string, @Body() Body: CreatePostDto) {
+        return {
+            success: true,
+            id: id,
+            body: Body,
+        }
+    }
+
+    @Delete(':id')
+    @ApiOperation({summary: '删除'})
+    doDelete(@Param('id') id: string) {
+        return {
+            id: id,
+            message: '删除成功！',
+            success: true,
         }
     }
 }
