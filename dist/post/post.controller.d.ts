@@ -1,21 +1,20 @@
 import { CreatePostDto } from './postFinterface';
 export declare class PostController {
-    index(): Promise<import("@hasezoey/typegoose").DocumentType<import("./post.model").Post>[]>;
+    private readonly postModel;
+    constructor(postModel: any);
+    index(): Promise<any>;
     create(createPostDto: CreatePostDto): Promise<{
         success: boolean;
     }>;
-    detail(id: string): {
-        id: string;
-        title: string;
-    };
-    update(id: string, Body: CreatePostDto): {
+    detail(id: String): Promise<any>;
+    update(id: string, updatePostDto: CreatePostDto): Promise<{
         success: boolean;
         id: string;
         body: CreatePostDto;
-    };
-    doDelete(id: string): {
+    }>;
+    doDelete(id: string): Promise<{
         id: string;
         message: string;
         success: boolean;
-    };
+    }>;
 }

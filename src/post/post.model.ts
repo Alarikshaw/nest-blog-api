@@ -1,4 +1,4 @@
-import { prop, getModelForClass } from '@hasezoey/typegoose'
+import { prop } from '@hasezoey/typegoose'
 
 /**
  * 表结构
@@ -10,7 +10,4 @@ export class Post{
     content: string;
 }
 
-/**
- * 模型
- */
-export const PostModel = getModelForClass(Post)
+

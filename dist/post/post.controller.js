@@ -16,31 +16,34 @@ exports.PostController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const postFinterface_1 = require("./postFinterface");
+const nestjs_typegoose_1 = require("nestjs-typegoose");
 const post_model_1 = require("./post.model");
 let PostController = class PostController {
+    constructor(postModel) {
+        this.postModel = postModel;
+    }
     async index() {
-        return await post_model_1.PostModel.find();
+        return await this.postModel.find();
     }
     async create(createPostDto) {
-        await post_model_1.PostModel.create(createPostDto);
+        await this.postModel.create(createPostDto);
         return {
             success: true
         };
     }
-    detail(id) {
-        return {
-            id: id,
-            title: '这是详细信息！'
-        };
+    async detail(id) {
+        return await this.postModel.findById(id);
     }
-    update(id, Body) {
+    async update(id, updatePostDto) {
+        await this.postModel.findByIdAndUpdate(id, updatePostDto);
         return {
             success: true,
             id: id,
-            body: Body,
+            body: updatePostDto,
         };
     }
-    doDelete(id) {
+    async doDelete(id) {
+        await this.postModel.findByIdAndDelete(id);
         return {
             id: id,
             message: '删除成功！',
@@ -69,7 +72,7 @@ __decorate([
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], PostController.prototype, "detail", null);
 __decorate([
     common_1.Put(':id'),
@@ -77,7 +80,7 @@ __decorate([
     __param(0, common_1.Param('id')), __param(1, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, postFinterface_1.CreatePostDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], PostController.prototype, "update", null);
 __decorate([
     common_1.Delete(':id'),
@@ -85,11 +88,13 @@ __decorate([
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], PostController.prototype, "doDelete", null);
 PostController = __decorate([
     common_1.Controller('posts'),
-    swagger_1.ApiTags('文章')
+    swagger_1.ApiTags('文章'),
+    __param(0, nestjs_typegoose_1.InjectModel(post_model_1.Post)),
+    __metadata("design:paramtypes", [Object])
 ], PostController);
 exports.PostController = PostController;
 //# sourceMappingURL=post.controller.js.map

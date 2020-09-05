@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostModel = exports.Post = void 0;
+exports.Post = void 0;
 const typegoose_1 = require("@hasezoey/typegoose");
 class Post {
 }
@@ -22,5 +22,4 @@ __decorate([
     __metadata("design:type", String)
 ], Post.prototype, "content", void 0);
 exports.Post = Post;
-exports.PostModel = typegoose_1.getModelForClass(Post);
 //# sourceMappingURL=post.model.js.map

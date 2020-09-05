@@ -1,14 +1,19 @@
 import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { CreatePostDto } from './postFinterface';
-import { PostModel } from './post.model';
+import { InjectModel } from 'nestjs-typegoose';
+import { Post as PostSchema } from './post.model'
 @Controller('posts')
 @ApiTags('文章')
 export class PostController {
+    // 依赖注入
+    constructor(
+        @InjectModel(PostSchema) private readonly postModel
+    ) {}
     @Get()
     @ApiOperation({summary: '查询列表'})
     async index() {
-        return await PostModel.find()
+        return await this.postModel.find()
     }
     /**
      * 创建文章的代码
@@ -18,7 +23,7 @@ export class PostController {
     @Post()
     @ApiOperation({summary: '创建'})
     async create(@Body() createPostDto: CreatePostDto) {
-        await PostModel.create(createPostDto)
+        await this.postModel.create(createPostDto)
         return {
             success: true
         }
@@ -26,26 +31,25 @@ export class PostController {
     
     @Get(":id")
     @ApiOperation({summary: '查询详细信息'})
-    detail(@Param('id') id: string) {
-        return {
-            id: id,
-            title: '这是详细信息！'
-        }
+    async detail(@Param('id') id: String) {
+        return await this.postModel.findById(id)
     }
 
     @Put(':id')
     @ApiOperation({summary: '编辑'})
-    update(@Param('id') id: string, @Body() Body: CreatePostDto) {
+    async update(@Param('id') id: string, @Body() updatePostDto: CreatePostDto) {
+        await this.postModel.findByIdAndUpdate(id, updatePostDto)
         return {
             success: true,
             id: id,
-            body: Body,
+            body: updatePostDto,
         }
     }
 
     @Delete(':id')
     @ApiOperation({summary: '删除'})
-    doDelete(@Param('id') id: string) {
+    async doDelete(@Param('id') id: string) {
+        await this.postModel.findByIdAndDelete(id)
         return {
             id: id,
             message: '删除成功！',
