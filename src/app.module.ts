@@ -1,18 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PostModule } from './post/post.module';
-import { TypegooseModule } from 'nestjs-typegoose';
-/**
- * 装饰器（注解）
- */
+import { PostsModule } from './posts/posts.module';
+
 @Module({
-  imports: [
-    TypegooseModule.forRoot('mongodb://localhost/nest-blog-api', {
-      useNewUrlParser: true
-    }),
-    PostModule
-  ],
+  imports: [PostsModule],
   controllers: [AppController],
   providers: [AppService],
 })
