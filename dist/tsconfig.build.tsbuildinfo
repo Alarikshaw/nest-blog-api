@@ -1363,32 +1363,32 @@
       },
       "../src/app.controller.ts": {
         "version": "788808a33f604ef7cecb44cb92b6ad1042007b2ba5567c54a2d6872949a4d478",
-        "signature": "35a9ea452244074cfb32903b496304c21c5a626f0b335f5486b9182cf22b8b48",
+        "signature": "9717550d749bcf71877531ac7b4aa303e1ad5cec5d6c3441a992fa48cd759d5e",
         "affectsGlobalScope": false
       },
       "../src/app.service.ts": {
         "version": "eaf8514ce110fa428a93a27408df4d06d133dbd9ed0a775c315ddfdd507853a9",
-        "signature": "d8f4cb0109c1b399d657807fd6af504d74a9300325e0fc915abdbf658b464a97",
+        "signature": "653711fba8904aa27fd8911b63cf526e7b334e13a292da4cefdbbe179ac3f3f2",
         "affectsGlobalScope": false
       },
       "../src/typeof/articleinterface.ts": {
         "version": "f89cf89ed6e2f3d6eac6bc2ed02b3acfd4b0c9aa4dacc41bd2830262d74b6154",
-        "signature": "fd506570eecae99b9b0375d5edee6815a04b5369e8a147db52a29d3b8b7b03bb",
+        "signature": "b3019df4b092f69b9c5a12f9e1c3841b4195680ea079e71c3bf28322c31467dc",
         "affectsGlobalScope": false
       },
       "../src/posts/posts.controller.ts": {
         "version": "1dd45f10153ce582420db9fa8e5afbe8389597f229fdced98e5172d1b0362968",
-        "signature": "d18a18c9dbb3e8e3b537e89bb50dd79389edd688505005a2598766c22dd9197d",
+        "signature": "6050eb537ff1abb9847458eaa9f4fd37abafd00d820231f37a253206e2b940ed",
         "affectsGlobalScope": false
       },
       "../src/posts/posts.module.ts": {
         "version": "0b6df22363e834f81280bdf6a79826c98e86be4e7aaaf9bc9afd42e4fb7de702",
-        "signature": "40121fef5aabd3c0b01245db985540faea0c6f8097c5efd734df5fa6031b0f6c",
+        "signature": "d73d1be1edc2a3da3bf5a4272781d7c793d79993a6f261bb91fa64bb4ad5b57b",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
         "version": "25c0ade7441b47c597eeb2ef28cdc793dbffa5f90c255a29c0217b8f2b4e2ca9",
-        "signature": "9fc7f7b6ad854404973b8cba8e6d883f758237991968e9a3965d716d46f1da88",
+        "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -1572,8 +1572,8 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "322d9071eeb1df39905c803c3e79ac2f854261ef1ed7062696e2171ee51fc119",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
+        "version": "9a06019daaff944d08bd5fe72ef668b8abc1e899f93226995319dfca25c1ffa7",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
       "../src/posts/post.model.ts": {
@@ -4318,9 +4318,7 @@
         "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/@types/bson/index.d.ts": [
-        "../node_modules/@types/mongoose/index.d.ts",
-        "../node_modules/@types/node/index.d.ts",
-        "../node_modules/mongoose/index.d.ts"
+        "../node_modules/@types/node/index.d.ts"
       ],
       "../node_modules/@types/connect/index.d.ts": [
         "../node_modules/@types/node/http.d.ts",
@@ -4364,19 +4362,17 @@
       ],
       "../node_modules/@types/mongodb/index.d.ts": [
         "../node_modules/@types/bson/index.d.ts",
-        "../node_modules/@types/mongoose/index.d.ts",
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts",
         "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/@types/node/tls.d.ts",
-        "../node_modules/mongoose/index.d.ts"
+        "../node_modules/@types/node/tls.d.ts"
       ],
       "../node_modules/@types/mongoose/index.d.ts": [
         "../node_modules/@types/mongodb/index.d.ts",
+        "../node_modules/@types/mongoose/index.d.ts",
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/index.d.ts",
-        "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/mongoose/index.d.ts"
+        "../node_modules/@types/node/stream.d.ts"
       ],
       "../node_modules/@types/node/base.d.ts": [
         "../node_modules/@types/node/assert.d.ts",
